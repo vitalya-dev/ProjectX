@@ -28,7 +28,4 @@ func _physics_process(delta):
 	var move_horizontal = transform.basis.x * h_input
 	var move_forward = transform.basis.z * f_input
 	var direction = (move_horizontal + move_forward).normalized()
-	move_and_slide(direction * speed, transform.basis.y)
-	
-	
-	
+	move_and_slide(direction * speed, transform.basis.y)	
