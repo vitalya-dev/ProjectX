@@ -3,8 +3,10 @@ extends KinematicBody
 var speed = 10
 var mouse_sense = 0.1
 var gravity = 9.8
-var jump_impulse = 5 
 var gravity_vector = Vector3.ZERO
+var move: Vector3 = Vector3.ZERO 
+var jump_impulse = 5
+
 
 onready var head = $Head
 onready var camera = $Head/Camera
@@ -25,19 +27,16 @@ func _process(delta):
 	pass
 		
 func _physics_process(delta):
-	var move_direction = Vector3.ZERO
+	print(is_on_floor())	
 	if is_on_floor():
-		print("On Floor")
-		if Input.is_action_just_pressed("jump"):
-			gravity_vector = Vector3.UP * jump_impulse
-		else:
-			gravity_vector = Vector3.ZERO
 		var f_input = Input.get_action_strength("move_backward") - Input.get_action_strength("move_forward")
 		var h_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-		var move_horizontal = transform.basis.x * h_input
-		var move_forward = transform.basis.z * f_input
-		move_direction = (move_horizontal + move_forward).normalized()
+		move = (transform.basis.x * h_input + transform.basis.z * f_input)
+		if move.length() > 0:
+			move = move.normalized()
+		gravity_vector = Vector3.ZERO
 	else:
-		print("Not On Floor")
 		gravity_vector += Vector3.DOWN * gravity * delta
-	move_and_slide(move_direction * speed + gravity_vector, transform.basis.y)	
+		move = Vector3.ZERO
+	move_and_slide_with_snap(move * speed + gravity_vector, Vector3.DOWN, Vector3.UP)
+	
