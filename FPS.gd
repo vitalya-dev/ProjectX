@@ -1,12 +1,13 @@
 extends KinematicBody
 
 var speed = 10
+var speed_modifier = 1
 var mouse_sense = 0.1
-var gravity = 9.8
-var gravity_vector = Vector3.ZERO
+var gravity = 20
+var fall = Vector3.ZERO
 var move: Vector3 = Vector3.ZERO 
-var jump_impulse = 5
-
+var snap: Vector3 = Vector3.ZERO
+var jump_height = 1
 
 onready var head = $Head
 onready var camera = $Head/Camera
@@ -23,20 +24,26 @@ func _input(event):
 		head.rotation.x = clamp(head.rotation.x, deg2rad(-89), deg2rad(89))
 
 func _process(delta):
-	#camera physics interpolation to reduce physics jitter on high refresh-rate monitors
-	pass
+	if Engine.get_frames_per_second() > Engine.iterations_per_second:
+		print("Jitter")
 		
 func _physics_process(delta):
-	print(is_on_floor())	
 	if is_on_floor():
+		snap = -get_floor_normal()
 		var f_input = Input.get_action_strength("move_backward") - Input.get_action_strength("move_forward")
 		var h_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 		move = (transform.basis.x * h_input + transform.basis.z * f_input)
 		if move.length() > 0:
 			move = move.normalized()
-		gravity_vector = Vector3.ZERO
+		fall = Vector3.ZERO
+		if Input.is_action_just_pressed("jump"):
+			fall = Vector3.UP * (sqrt(2 * gravity * jump_height))
+			snap = Vector3.ZERO
+		speed_modifier = 1
 	else:
-		gravity_vector += Vector3.DOWN * gravity * delta
-		move = Vector3.ZERO
-	move_and_slide_with_snap(move * speed + gravity_vector, Vector3.DOWN, Vector3.UP)
+		fall += Vector3.DOWN * gravity * delta
+		snap = Vector3.DOWN
+		speed_modifier = 0.5
+		
+	move_and_slide_with_snap(move * speed * speed_modifier + fall, snap, Vector3.UP)
 	
