@@ -9,7 +9,6 @@
 [node name="Spatial" type="Spatial"]
 
 [node name="FPS" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2 )
 
 [node name="Floor" type="StaticBody" parent="."]
 transform = Transform( 32, 0, 0, 0, 1, 0, 0, 0, 14.96, 0, -2, 0 )
@@ -34,4 +33,18 @@ skeleton = NodePath("../..")
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Coub2"]
+shape = SubResource( 2 )
+
+[node name="Coub3" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.95691, 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Coub3"]
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Coub3"]
 shape = SubResource( 2 )

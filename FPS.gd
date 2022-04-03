@@ -2,7 +2,7 @@ extends KinematicBody
 
 var speed = 10
 var speed_modifier = 1
-var mouse_sense = 0.1
+var mouse_sense = 0.2
 var gravity = 20
 var fall = Vector3.ZERO
 var move: Vector3 = Vector3.ZERO 
