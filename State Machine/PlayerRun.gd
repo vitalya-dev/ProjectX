@@ -12,26 +12,31 @@ func _ready():
 
 
 func input(event: InputEvent) -> void:
-	return
+	_parent.input(event)
 
 func unhandled_input(event: InputEvent) -> void:
-	return
-
+	_parent.unhandled_input(event)
 
 func process(delta: float) -> void:
-	return
-
+	_parent.process(delta)
 
 func physics_process(delta: float) -> void:
-	return
+	_parent.physics_process(delta)
+	var input_direction = get_input_direction()
+	if player.is_on_floor():
+		_parent.move = (player.transform.basis.x * input_direction.x + player.transform.basis.z * input_direction.z).normalized()
+		_parent.snap = -player.get_floor_normal()
+		if input_direction.length_squared() < 0.001:
+			_state_machine.transition_to("Move/Idle")
+	else:
+		_state_machine.transition_to("Move/Air")
 
 
 func enter(msg: Dictionary = {}) -> void:
-	print("Run")
-
+	_parent.enter(msg)
 
 func exit() -> void:
-	return
+	_parent.exit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

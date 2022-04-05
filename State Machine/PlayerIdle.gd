@@ -14,25 +14,28 @@ func input(event: InputEvent) -> void:
 	_parent.input(event)
 
 func unhandled_input(event: InputEvent) -> void:
-	return
+	_parent.unhandled_input(event)
 
 func process(delta: float) -> void:
-	return
+	_parent.process(delta)
 
 
 func physics_process(delta: float) -> void:
 	_parent.physics_process(delta)
-	print(player.is_on_floor())
-	if player.is_on_floor() and _parent.move.length() > 0:
+	if player.is_on_floor() and get_input_direction().length_squared() > 0:
 		_state_machine.transition_to("Move/Run")
+	elif not player.is_on_floor():
+		_state_machine.transition_to("Move/Air")
 
 
 func enter(msg: Dictionary = {}) -> void:
-	return
+	_parent.enter(msg)
+	_parent.snap = -player.get_floor_normal()
+	_parent.move = Vector3.ZERO
 
 
 func exit() -> void:
-	return
+	_parent.exit()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

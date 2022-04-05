@@ -1,22 +1,14 @@
 extends KinematicBody
 class_name Player
 
-var speed = 10
-var speed_modifier = 1
-var mouse_sense = 0.2
-var gravity = 20
-var jump_height = 1
+
 
 onready var head = $Head
 onready var camera = $Head/Camera
 
 func _ready():
-	#hides the cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-func _input(event):
-	pass
-	#get mouse input for camera rotation
 
 
 #func _process(delta):
