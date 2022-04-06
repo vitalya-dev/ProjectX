@@ -164,3 +164,13 @@ script = ExtResource( 6 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Crouch = SubResource( 3 )
 anims/RESET = SubResource( 4 )
+
+[node name="StepRayLower" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.843552, 0 )
+enabled = true
+cast_to = Vector3( 0, 0, -0.5 )
+
+[node name="StepRayUpper" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5562, 0 )
+enabled = true
+cast_to = Vector3( 0, 0, -0.7 )

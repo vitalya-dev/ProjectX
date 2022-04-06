@@ -41,11 +41,16 @@ func process(delta: float) -> void:
 	return
 
 func physics_process(delta: float) -> void:
+
 	if move.length_squared() > 0:
 		move = move.normalized()
 	player.move_and_slide_with_snap(move * speed + fall, snap, Vector3.UP)
+	_step_climb(delta)
 	
-
+func _step_climb(delta):
+	if player.step_ray_lower.is_colliding():
+		if !player.step_ray_upper.is_colliding():
+			player.move_and_collide(Vector3.UP * delta)
 
 func enter(msg: Dictionary = {}) -> void:
 	return

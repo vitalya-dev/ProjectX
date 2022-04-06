@@ -15,12 +15,13 @@ albedo_color = Color( 0.768627, 0.419608, 0.419608, 1 )
 [node name="Spatial" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.100456, 4.00002, 0.0733821 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.100456, -0.00144291, 7.83982 )
 
 [node name="Floor" type="StaticBody" parent="."]
 transform = Transform( 124.535, 0, 0, 0, 1, 0, 0, 0, 78.5238, 0, -2, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = null
@@ -43,7 +44,7 @@ material/0 = SubResource( 4 )
 shape = SubResource( 2 )
 
 [node name="Coub3" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0659034, 0, 9.54943 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0659034, -1.59414, 9.54943 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -54,4 +55,130 @@ skeleton = NodePath("../..")
 material/0 = SubResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Coub3"]
+shape = SubResource( 2 )
+
+[node name="Coub4" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0659034, -1.30067, 10.7362 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Coub4"]
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Coub4"]
+shape = SubResource( 2 )
+
+[node name="Coub5" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0659034, -0.905141, 12.0116 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Coub5"]
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Coub5"]
+shape = SubResource( 2 )
+
+[node name="Coub6" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0659034, -0.590816, 13.11 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Coub6"]
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Coub6"]
+shape = SubResource( 2 )
+
+[node name="Coub7" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0659034, -0.284085, 14.2136 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Coub7"]
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Coub7"]
+shape = SubResource( 2 )
+
+[node name="Coub8" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0659034, -0.00236511, 15.539 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Coub8"]
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Coub8"]
+shape = SubResource( 2 )
+
+[node name="Coub9" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0659034, 0.284701, 16.7258 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Coub9"]
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Coub9"]
+shape = SubResource( 2 )
+
+[node name="Coub10" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0659034, 0.64086, 18.0012 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Coub10"]
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Coub10"]
+shape = SubResource( 2 )
+
+[node name="Coub11" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0659034, 0.997758, 19.0996 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Coub11"]
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Coub11"]
+shape = SubResource( 2 )
+
+[node name="Coub12" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0659034, 1.35652, 20.2032 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Coub12"]
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Coub12"]
 shape = SubResource( 2 )
