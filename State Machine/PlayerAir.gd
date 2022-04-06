@@ -34,11 +34,11 @@ func enter(msg: Dictionary = {}) -> void:
 		_:
 			_parent.fall = Vector3.ZERO
 	_parent.snap = Vector3.ZERO
-	_parent.speed_modifier = 0.7
+	_parent.speed *= 0.25
 
 func exit() -> void:
 	_parent.fall = Vector3.ZERO
-	_parent.speed_modifier = 1
+	_parent.speed *= 4
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

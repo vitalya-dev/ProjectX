@@ -5,6 +5,7 @@ class_name Player
 
 onready var head = $Head
 onready var camera = $Head/Camera
+onready var a_player: AnimationPlayer = $AnimationPlayer
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

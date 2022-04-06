@@ -24,6 +24,10 @@ func physics_process(delta: float) -> void:
 	_parent.physics_process(delta)
 	var input_direction = get_input_direction()
 	if player.is_on_floor():
+		if _parent.crouching:
+			_parent.speed = _parent.crouch_speed
+		else:
+			_parent.speed = _parent.normal_speed
 		_parent.move = (player.transform.basis.x * input_direction.x + player.transform.basis.z * input_direction.z).normalized()
 		_parent.snap = -player.get_floor_normal()
 		if input_direction.length_squared() < 0.001:
