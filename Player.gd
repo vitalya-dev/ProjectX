@@ -8,16 +8,17 @@ onready var camera = $Head/Camera
 onready var a_player: AnimationPlayer = $AnimationPlayer
 onready var step_ray_lower: RayCast = $StepRayLower
 onready var step_ray_upper: RayCast = $StepRayUpper
+onready var debug : Label = $Debug as Label
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 
-#func _process(delta):
-#	if Engine.get_frames_per_second() > Engine.iterations_per_second:
-#		print("Jitter")
-#
+func _process(delta):
+	debug.text = $StateMachine.state.name + "\n"
+	debug.text += str($StateMachine/Move.move)
+
 #func _physics_process(delta):
 #	if is_on_floor():
 #		snap = -get_floor_normal()

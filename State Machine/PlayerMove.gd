@@ -44,13 +44,16 @@ func physics_process(delta: float) -> void:
 
 	if move.length_squared() > 0:
 		move = move.normalized()
-	player.move_and_slide_with_snap(move * speed + fall, snap, Vector3.UP)
-	_step_climb(delta)
+		player.move_and_slide_with_snap(move * speed + fall, snap, Vector3.UP)
+		_step_climb(delta)
+	if fall.length_squared() > 0:
+		player.move_and_slide_with_snap(fall, snap, Vector3.UP)
+	
 	
 func _step_climb(delta):
 	if player.step_ray_lower.is_colliding():
 		if !player.step_ray_upper.is_colliding():
-			player.move_and_collide(Vector3.UP * delta)
+			player.move_and_collide(Vector3.UP * delta * 2)
 
 func enter(msg: Dictionary = {}) -> void:
 	return
