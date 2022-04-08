@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://State Machine/StateMachine.gd" type="Script" id=1]
-[ext_resource path="res://Crosshair.png" type="Texture" id=2]
-[ext_resource path="res://Player.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Crosshair.png" type="Texture" id=2]
+[ext_resource path="res://Player/Player.gd" type="Script" id=3]
 [ext_resource path="res://State Machine/PlayerIdle.gd" type="Script" id=4]
 [ext_resource path="res://State Machine/PlayerAir.gd" type="Script" id=5]
 [ext_resource path="res://State Machine/PlayerRun.gd" type="Script" id=6]
@@ -51,30 +51,6 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0.5, 0.5, 0.63 ), Vector3( 0.5, 0.5054, 0.37185 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("StepRayLower:translation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, -0.840473, 0 ), Vector3( 0, -0.521934, 0 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("StepRayUpper:translation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, -0.682424, 0 ), Vector3( 0, -0.363884, 0 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -138,30 +114,6 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0.5, 0.5, 0.63 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("StepRayLower:translation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, -0.840473, 0 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("StepRayUpper:translation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, -0.682424, 0 ) ]
 }
 
 [node name="Player" type="KinematicBody"]
