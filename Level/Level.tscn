@@ -11,9 +11,6 @@
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 2 )
 
-[node name="Stairs" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.603569, 0, -0.797194, 0, 0.999907, 0, 0.797194, 0, 0.603569, 0.375807, -0.999854, -5.56106 )
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.100456, 0.000511169, 7.83982 )
 
@@ -27,3 +24,6 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Floor"]
 shape = SubResource( 2 )
+
+[node name="Stairs" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.266, -1, 2.822 )
