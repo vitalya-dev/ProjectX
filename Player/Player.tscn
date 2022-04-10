@@ -137,7 +137,9 @@ material/0 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 
 [node name="Camera" type="Camera" parent="Head"]
-fov = 45.0
+current = true
+fov = 50.0
+far = 200.0
 
 [node name="Crosshair" type="TextureRect" parent="Head/Camera"]
 anchor_left = 0.5

@@ -22,7 +22,7 @@ func input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		player.rotate_y(deg2rad(-event.relative.x * mouse_sense))
 		player.head.rotate_x(deg2rad(-event.relative.y * mouse_sense))
-		player.head.rotation.x = clamp(player.head.rotation.x, deg2rad(-89), deg2rad(89))
+		player.head.rotation.x = clamp(player.head.rotation.x, -PI / 2, PI)
 
 func unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump") and _state_machine.state.name != "Air":
