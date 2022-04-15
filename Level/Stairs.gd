@@ -11,7 +11,7 @@ func _ready():
 	pass # Replace with function body.
 
 func get_connection_point():
-	return $Stairs_Mesh/Connection.global_transform.origin
+	return $Connection.global_transform.origin
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

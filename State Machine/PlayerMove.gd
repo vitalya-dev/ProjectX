@@ -5,8 +5,8 @@ var crouching = false
 var fall = Vector3.ZERO
 var snap: Vector3 = Vector3.ZERO
 var move: Vector3 = Vector3.ZERO
-var normal_speed: float = 10
-var crouch_speed: float = 5 
+var normal_speed: float = 20
+var crouch_speed: float = 10 
 var speed: float = normal_speed
 
 var mouse_sense: float = 0.2
