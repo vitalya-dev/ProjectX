@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Stairs.gltf-2b13e8459c5993c564e5b0e8ffcabdf7.scn"
+path="res://.import/Pieces.gltf-ff301bb3daf99eaa60698f1afe531154.scn"
 
 [deps]
 
-source_file="res://Assets/Stairs/Stairs.gltf"
-dest_files=[ "res://.import/Stairs.gltf-2b13e8459c5993c564e5b0e8ffcabdf7.scn" ]
+source_file="res://Assets/Pieces/Pieces.gltf"
+dest_files=[ "res://.import/Pieces.gltf-ff301bb3daf99eaa60698f1afe531154.scn" ]
 
 [params]
 
