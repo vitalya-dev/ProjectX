@@ -26,10 +26,11 @@ func _ready():
 func _start_guillotine_spawner():
 	var guillotine_a: Guillotine = $GuillotineA
 	while true:
-		yield(get_tree().create_timer(2.0), "timeout")
+		var rnd: float = rand_range(1, 5)
+		yield(get_tree().create_timer(rnd), "timeout")
 		var guillotine_b: Guillotine =  guillotine_a.duplicate()
-		guillotine_b.linear_velocity = 8.9
-		guillotine_b.rotation_velocity = 2 * PI
+		guillotine_b.linear_velocity = 8.9 / rnd
+		guillotine_b.rotation_velocity = 2 * PI / rnd
 		add_child(guillotine_b)
 		
 		
