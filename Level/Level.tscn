@@ -52,7 +52,7 @@ data = PoolVector3Array( 1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0,
 script = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.21004, 0.998374, 14.5426 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.90146, 9.81428, 4.55844 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
@@ -70,7 +70,7 @@ __meta__ = {
 }
 
 [node name="GuillotineA" type="StaticBody" parent="Tower"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
@@ -82,6 +82,21 @@ skeleton = NodePath("../../..")
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Tower/GuillotineA"]
+shape = SubResource( 11 )
+
+[node name="GuillotineB" type="StaticBody" parent="Tower"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.5, 0 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Guillotine" type="MeshInstance" parent="Tower/GuillotineB"]
+mesh = ExtResource( 4 )
+skeleton = NodePath("../../..")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Tower/GuillotineB"]
 shape = SubResource( 11 )
 
 [node name="TowerA" type="Spatial" parent="Tower"]
