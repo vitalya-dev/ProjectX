@@ -1,6 +1,5 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Level/Level.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Pieces/Pieces_Wall.mesh" type="ArrayMesh" id=3]
 [ext_resource path="res://Assets/Pieces/Pieces_Cube001.mesh" type="ArrayMesh" id=4]
@@ -51,8 +50,8 @@ data = PoolVector3Array( 1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0,
 [node name="Level" type="Spatial"]
 script = ExtResource( 2 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.90146, 9.81428, 4.55844 )
+[node name="StartPoint" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, 12 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
@@ -69,8 +68,8 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="GuillotineA" type="StaticBody" parent="Tower"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0 )
+[node name="GuillotineA" type="KinematicBody" parent="Tower" groups=["guillotines"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
@@ -84,7 +83,7 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Tower/GuillotineA"]
 shape = SubResource( 11 )
 
-[node name="GuillotineB" type="StaticBody" parent="Tower"]
+[node name="GuillotineB" type="KinematicBody" parent="Tower" groups=["guillotines"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.5, 0 )
 script = ExtResource( 9 )
 __meta__ = {
@@ -211,83 +210,3 @@ material/0 = null
 mesh = ExtResource( 4 )
 skeleton = NodePath("../..")
 material/0 = null
-
-[node name="Tower" type="Spatial" parent="Pieces"]
-
-[node name="TowerA" type="Spatial" parent="Pieces/Tower"]
-
-[node name="WallA" type="StaticBody" parent="Pieces/Tower/TowerA"]
-
-[node name="MeshInstance" type="MeshInstance" parent="Pieces/Tower/TowerA/WallA"]
-mesh = ExtResource( 3 )
-skeleton = NodePath("../../../..")
-material/0 = null
-
-[node name="CollisionShape" type="CollisionShape" parent="Pieces/Tower/TowerA/WallA"]
-shape = SubResource( 7 )
-
-[node name="Rod" type="StaticBody" parent="Pieces/Tower/TowerA"]
-
-[node name="MeshInstance" type="MeshInstance" parent="Pieces/Tower/TowerA/Rod"]
-mesh = ExtResource( 6 )
-skeleton = NodePath("../../../..")
-material/0 = null
-
-[node name="CollisionShape" type="CollisionShape" parent="Pieces/Tower/TowerA/Rod"]
-shape = SubResource( 8 )
-
-[node name="Stairs" type="StaticBody" parent="Pieces/Tower/TowerA"]
-
-[node name="MeshInstance" type="MeshInstance" parent="Pieces/Tower/TowerA/Stairs"]
-mesh = ExtResource( 5 )
-skeleton = NodePath("../../../..")
-material/0 = null
-
-[node name="CollisionShape" type="CollisionShape" parent="Pieces/Tower/TowerA/Stairs"]
-shape = SubResource( 9 )
-
-[node name="TowerB" type="Spatial" parent="Pieces/Tower"]
-
-[node name="WallB" type="StaticBody" parent="Pieces/Tower/TowerB"]
-
-[node name="MeshInstance" type="MeshInstance" parent="Pieces/Tower/TowerB/WallB"]
-mesh = ExtResource( 7 )
-skeleton = NodePath("../../../..")
-material/0 = null
-
-[node name="CollisionShape" type="CollisionShape" parent="Pieces/Tower/TowerB/WallB"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0808716, 0 )
-shape = SubResource( 10 )
-
-[node name="Rod" type="StaticBody" parent="Pieces/Tower/TowerB"]
-
-[node name="MeshInstance" type="MeshInstance" parent="Pieces/Tower/TowerB/Rod"]
-mesh = ExtResource( 6 )
-skeleton = NodePath("../../../..")
-material/0 = null
-
-[node name="CollisionShape" type="CollisionShape" parent="Pieces/Tower/TowerB/Rod"]
-shape = SubResource( 8 )
-
-[node name="Stairs" type="StaticBody" parent="Pieces/Tower/TowerB"]
-
-[node name="MeshInstance" type="MeshInstance" parent="Pieces/Tower/TowerB/Stairs"]
-mesh = ExtResource( 5 )
-skeleton = NodePath("../../../..")
-material/0 = null
-
-[node name="CollisionShape" type="CollisionShape" parent="Pieces/Tower/TowerB/Stairs"]
-shape = SubResource( 9 )
-
-[node name="Guillotine" type="StaticBody" parent="Pieces"]
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Guillotine" type="MeshInstance" parent="Pieces/Guillotine"]
-mesh = ExtResource( 4 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="CollisionShape" type="CollisionShape" parent="Pieces/Guillotine"]
-shape = SubResource( 11 )

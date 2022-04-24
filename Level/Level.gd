@@ -5,13 +5,24 @@ extends Spatial
 # var a = 2
 # var b = "text"
 
+var player: Player = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-#	_create_tower()
+	_create_player()
+	
+func _create_player():
+	player = preload("res://Player/Player.tscn").instance()
+	player.connect("killed", self, "_on_player_killed")
+	add_child(player)
+	player.transform.origin = $StartPoint.transform.origin
 
-
+func _on_player_killed():
+	if not player.is_queued_for_deletion():
+		player.queue_free()
+		yield(player, "tree_exited")
+		yield(get_tree(), "idle_frame")
+		_create_player()
 
 #func _create_tower():
 #	print("create_tower")

@@ -1,4 +1,4 @@
-extends StaticBody
+extends KinematicBody
 class_name Guillotine
 
 # Declare member variables here. Examples:
@@ -14,6 +14,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	rotate_y(rotation_velocity * delta * -1)
-	translate(Vector3.DOWN * linear_velocity * delta)
+	move_and_collide(Vector3.DOWN * linear_velocity * delta)
+	
