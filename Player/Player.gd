@@ -9,9 +9,11 @@ onready var a_player: AnimationPlayer = $AnimationPlayer
 onready var step_ray_lower: RayCast = $StepRayLower
 onready var step_ray_upper: RayCast = $StepRayUpper
 onready var debug : Label = $Debug as Label
+onready var area = $Area
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	area.connect("body_entered", self, "_on_body_enetered")
 
 func _process(delta):
 	debug.text = $StateMachine.state.name + "\n"
@@ -19,6 +21,8 @@ func _process(delta):
 	debug.text += str($StateMachine/Move.fall)
 	
 func _physics_process(delta):
-	for i in range(get_slide_count()):
-		if get_slide_collision(i).collider.is_in_group("guillotines"):
-			emit_signal("killed")
+	pass
+
+func _on_body_enetered(body: Node):
+	if body.is_in_group("guillotines"):
+		emit_signal("killed")

@@ -21,7 +21,7 @@ func _ready():
 	##########################################################
 	tower_b.queue_free()
 	##########################################################
-	#_start_guillotine_fall()
+	_start_guillotine_fall()
 
 
 func _start_guillotine_fall():
