@@ -6,8 +6,6 @@ signal killed()
 onready var head = $Head
 onready var camera = $Head/Camera
 onready var a_player: AnimationPlayer = $AnimationPlayer
-onready var step_ray_lower: RayCast = $StepRayLower
-onready var step_ray_upper: RayCast = $StepRayUpper
 onready var debug : Label = $Debug as Label
 onready var area = $Area
 
