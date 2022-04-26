@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/Ragdoll/Doll_Cube009.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://Assets/Ragdoll/Doll_Cube012.mesh" type="ArrayMesh" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Assets/Ragdoll/Doll_Cube008.mesh" type="ArrayMesh" id=8]
 [ext_resource path="res://Assets/Ragdoll/Doll_Cube.mesh" type="ArrayMesh" id=9]
 [ext_resource path="res://Assets/Ragdoll/Doll_Cube001.mesh" type="ArrayMesh" id=10]
+[ext_resource path="res://RagDoll.gd" type="Script" id=11]
 
 [sub_resource type="ConvexPolygonShape" id=17]
 points = PoolVector3Array( 0.136208, 0.35908, 0.197859, 0.136208, 0.361929, -0.191123, -0.186728, 0.32862, 0.197859, 0.135948, -0.0579456, 0.158984, 0.146247, -0.446331, 0.103279, 0.146247, -0.441268, -0.160434, -0.186728, 0.331389, -0.191123, -0.0847754, -0.445065, 0.103279, -0.130504, -0.0606355, 0.158984, -0.0847754, -0.440002, -0.160434 )
@@ -42,6 +43,7 @@ points = PoolVector3Array( -0.112035, 0.324209, 0.170946, 0.130104, 0.321968, 0.
 points = PoolVector3Array( -0.375329, 0.465248, 0.0952558, -0.341308, 0.269062, 0.209479, -0.173921, 0.568611, 0.0952558, -0.375329, 0.484855, -0.179276, -0.32022, -0.537555, -0.183338, -0.32022, -0.536422, 0.225534, -0.00638708, 0.296603, 0.23448, -0.163487, 0.323464, 0.209479, -0.304348, -0.0869286, 0.236511, 0.173859, 0.568611, 0.0952558, -0.173921, 0.588105, -0.179276, -0.341308, 0.29921, -0.25752, 5.66244e-06, -0.56963, -0.183338, 5.66244e-06, -0.56861, 0.225534, 5.66244e-06, -0.0844352, 0.236511, 0.304286, -0.0869286, 0.236511, 0.341246, 0.269062, 0.209479, 0.163425, 0.323464, 0.209479, 0.375341, 0.465248, 0.0952558, 0.375341, 0.484855, -0.179276, 0.173859, 0.588105, -0.179276, -0.163487, 0.353611, -0.25752, 0.341246, 0.29921, -0.25752, 0.320157, -0.537555, -0.183338, 0.320157, -0.536422, 0.225534, 0.163425, 0.353611, -0.25752 )
 
 [node name="RagDoll" type="Spatial"]
+script = ExtResource( 11 )
 
 [node name="LLegTop" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20374, -0.909789, 0.0111496 )
@@ -192,12 +194,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.433339, 0.00515842, 0 )
 nodes/node_a = NodePath("../LHandTop")
 nodes/node_b = NodePath("../LHandBot")
 
-[node name="HingeJoint5" type="HingeJoint" parent="."]
+[node name="LKneeJoint" type="HingeJoint" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243217, -1.37592, 0 )
 nodes/node_a = NodePath("../LLegTop")
 nodes/node_b = NodePath("../LLegBot")
 
-[node name="HingeJoint6" type="HingeJoint" parent="."]
+[node name="RKneeJoint" type="HingeJoint" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.198012, -1.37592, 0 )
 nodes/node_a = NodePath("../RLegTop")
 nodes/node_b = NodePath("../RLegBot")

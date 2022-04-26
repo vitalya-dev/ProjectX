@@ -1,7 +1,7 @@
 extends KinematicBody
 class_name Player
 
-signal killed()
+signal killed(node)
 
 onready var head = $Head
 onready var camera = $Head/Camera
@@ -23,4 +23,4 @@ func _physics_process(delta):
 
 func _on_body_enetered(body: Node):
 	if body.is_in_group("guillotines"):
-		emit_signal("killed")
+		emit_signal("killed", body)

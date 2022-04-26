@@ -17,12 +17,17 @@ func _create_player():
 	add_child(player)
 	player.transform.origin = $StartPoint.transform.origin
 
-func _on_player_killed():
+func _on_player_killed(body: Node):
 	if not player.is_queued_for_deletion():
 		###################################################
 		var ragdoll = preload("res://RagDoll.tscn").instance()
 		ragdoll.transform = player.transform
 		add_child(ragdoll)
+		###################################################
+		if body.is_in_group("guillotines_a"):
+			ragdoll.cut_the_head_off()
+		elif body.is_in_group("guillotines_b"):
+			ragdoll.cut_the_leg_off()
 		###################################################
 		player.queue_free()
 		yield(player, "tree_exited")
