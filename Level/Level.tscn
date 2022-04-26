@@ -1,6 +1,5 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://RagDoll.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Level/Level.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Pieces/Pieces_Wall.mesh" type="ArrayMesh" id=3]
 [ext_resource path="res://Assets/Pieces/Pieces_Cube001.mesh" type="ArrayMesh" id=4]
@@ -80,8 +79,8 @@ __meta__ = {
 
 [node name="GuillotineA" type="KinematicBody" parent="Tower" groups=["guillotines"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0 )
-collision_layer = 2
-collision_mask = 0
+collision_layer = 0
+collision_mask = 2
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
@@ -97,8 +96,8 @@ shape = SubResource( 15 )
 
 [node name="GuillotineB" type="KinematicBody" parent="Tower" groups=["guillotines"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.5, 0 )
-collision_layer = 2
-collision_mask = 0
+collision_layer = 0
+collision_mask = 2
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
@@ -224,6 +223,3 @@ material/0 = null
 mesh = ExtResource( 4 )
 skeleton = NodePath("../..")
 material/0 = null
-
-[node name="RagDoll" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12821, 16.1968, 10.2593 )

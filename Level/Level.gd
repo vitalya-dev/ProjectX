@@ -19,9 +19,15 @@ func _create_player():
 
 func _on_player_killed():
 	if not player.is_queued_for_deletion():
+		###################################################
+		var ragdoll = preload("res://RagDoll.tscn").instance()
+		ragdoll.transform = player.transform
+		add_child(ragdoll)
+		###################################################
 		player.queue_free()
 		yield(player, "tree_exited")
 		yield(get_tree(), "idle_frame")
+		###################################################
 		_create_player()
 
 #func _create_tower():
